@@ -1,3 +1,14 @@
+/*
+中国联通 
+功能：签到，签到任务
+变量 ltphone 值：手机号
+变量 ltpwd 值：密码
+
+ql raw https://gitee.com/xiecoll/radish-script/raw/master/Chinaunicom.js
+
+cron 5 9,11,18 * * *
+*/
+
 const $ = new Env('中国联通');//Chinaunicom
 let status;
 status = (status = ($.getval("ddgystatus") || "1")) > 1 ? `${status}` : ""; // 账号扩展字符
