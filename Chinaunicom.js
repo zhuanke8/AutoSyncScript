@@ -1,8 +1,9 @@
 /*
 中国联通 
-功能：签到，签到任务
+功能：签到，签到任务，奖励：有话费红包吧
 变量 ltphone 值：手机号
 变量 ltpwd 值：密码
+多账号用 @ 分隔
 
 ql raw https://gitee.com/xiecoll/radish-script/raw/master/Chinaunicom.js
 
