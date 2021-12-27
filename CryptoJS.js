@@ -1,4 +1,3 @@
-//
 var CryptoJS = CryptoJS || (function (Math, undefined) {
     var C = {};
     var C_lib = C.lib = {};
@@ -1203,8 +1202,9 @@ function DES_Decrypt(word) {
 }
 
 
-
 module.exports = {
-    DES_Encrypt,
-    DES_Decrypt
+
+    DES_Decrypt,
+    DES_Encrypt
 }
+
