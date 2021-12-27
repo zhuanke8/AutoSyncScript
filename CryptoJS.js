@@ -1,3 +1,4 @@
+//
 var CryptoJS = CryptoJS || (function (Math, undefined) {
     var C = {};
     var C_lib = C.lib = {};
