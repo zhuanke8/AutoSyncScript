@@ -1,19 +1,6 @@
 
 //TG群组：https://t.me/Luobook666 公众号：Luobook科技社
 
-
-
-//美团天天神卷+赚米粒
-//百度 美团登录自己抓Token ，美团小程序首页天天赚钱
-//只支持青龙
-// 环境变量 mtTk （建议直接复制） , 填写天天赚钱的变量：mtuserid  值为美团用户id
-//多账号用 @
-//如需关闭膨胀，环境变量 sjpz 值：false
-//本次更新：增加推送，可设置膨胀。
-//推送依赖 https://gitee.com/xiecoll/radish-script/raw/master/MT/sendNotify.js
-
-
-
 //美团天天神卷+赚米粒
 //百度 美团登录自己抓Token ，美团小程序首页天天赚钱
 //只支持青龙
