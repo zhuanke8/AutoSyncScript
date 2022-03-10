@@ -6,8 +6,10 @@
 每天任务 4链币 
 100链币入仓分红
 青龙变量：qmlctk  值抓包 154.221.24.105:8200 请求头里的 token
-
+    
 多账号用 @
+
+脚本 ：https://gitee.com/xiecoll/radish-script/raw/master/qmlc.js
 */
 
 const jsname = '全民链仓'
