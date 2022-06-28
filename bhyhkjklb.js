@@ -77,7 +77,7 @@ async function start() {
 	console.log("\n开始 用户信息");
 	await user_info();
 
-	if (!ck_status) {
+	if (ck_status) {
 		console.log("\n开始 签到信息");
 		await sign_info(1);
 
