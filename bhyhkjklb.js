@@ -35,14 +35,14 @@ let ck_status = true;
 // let host = 'mc.kukahome.com';
 // let hostname = 'https://' + host;
 //---------------------------------------------------------------------------------------------------------
-let VersionCheck = "0.1.4"
+let VersionCheck = "0.1.5"
 let Change = '增加圈x v2p兼容,自行测试吧!'
 let thank = `\n感谢 心雨 的投稿\n`
 //---------------------------------------------------------------------------------------------------------
 
 async function tips(ckArr) {
 	let Version_latest = await Version_Check('bhyhkjklb');
-	let Version = `\n📌 本地脚本: V 0.1.4  远程仓库脚本: V ${Version_latest}`
+	let Version = `\n📌 本地脚本: V 0.1.5  远程仓库脚本: V ${Version_latest}`
 	DoubleLog(`${Version}\n📌 🆙 更新内容: ${Change}`);
 	DoubleLog(`${thank}`);
 	await wyy();
