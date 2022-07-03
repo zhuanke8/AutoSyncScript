@@ -152,7 +152,7 @@ async function task_list() {
 			for (let index = 0; index < taskArr.length; index++) {
 				id = taskArr[index].id;
 				let time = tmtoDate(Number(taskArr[index]?.createTime));
-				DoubleLog(`任务详情: ${taskArr[index]?.typeName}  ,${taskArr[index]?.exchangeType} ,任务周期 ${taskArr[index]?.days}天 ,奖励玄铁: ${taskArr[index]?.darksteelQty}个 \    n累计领取玄铁: ${taskArr[index]?.accruedDarksteelQty} ,累计任务周期: ${taskArr[index]?.accruedDays}天 ,任务时间: ${time}`);
+				DoubleLog(`任务详情: ${taskArr[index]?.typeName}  ,${taskArr[index]?.exchangeType} ,任务周期 ${taskArr[index]?.days}天 ,奖励玄铁: ${taskArr[index]?.darksteelQty}个 \n    累计领取玄铁: ${taskArr[index]?.accruedDarksteelQty} ,累计任务周期: ${taskArr[index]?.accruedDays}天 ,任务时间: ${time}`);
 				await do_task(id);
 			}
 
