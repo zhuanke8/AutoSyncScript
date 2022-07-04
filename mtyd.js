@@ -2,6 +2,8 @@
  * 脚本地址:   http://yml-gitea.ml:2233/yml/JavaScript-yml/raw/branch/master/mtyd.js
  * 转载请留信息,谢谢
  * 
+ * 下载地址: https://h5.metayunduan.com/invitation.html?code=auPX0ipk   邀请码(auPX0ipk)
+ * 
  *
  * mate云端  app
  *
