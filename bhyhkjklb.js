@@ -8,6 +8,7 @@
  *
  * 6-11		完成 签到 三次积分抽奖任务
  * 6-11		增加圈x v2p兼容,自行测试吧
+ * 11-7		增加库存查询
  *
  * 感谢所有测试人员
  * ========= 青龙--配置文件 =========
@@ -35,14 +36,14 @@ let ck_status = true;
 // let host = 'mc.kukahome.com';
 // let hostname = 'https://' + host;
 //---------------------------------------------------------------------------------------------------------
-let VersionCheck = "0.1.5"
+let VersionCheck = "0.1.4"
 let Change = '增加圈x v2p兼容,自行测试吧!'
 let thank = `\n感谢 心雨 的投稿\n`
 //---------------------------------------------------------------------------------------------------------
 
 async function tips(ckArr) {
 	let Version_latest = await Version_Check('bhyhkjklb');
-	let Version = `\n📌 本地脚本: V 0.1.5  远程仓库脚本: V ${Version_latest}`
+	let Version = `\n📌 本地脚本: V 0.1.4  远程仓库脚本: V ${Version_latest}`
 	DoubleLog(`${Version}\n📌 🆙 更新内容: ${Change}`);
 	DoubleLog(`${thank}`);
 	await wyy();
@@ -83,6 +84,9 @@ async function start() {
 
 		console.log("\n开始 抽奖");
 		await Lottery();
+
+		console.log("\n开始 查询e卡库存");
+		await Stock();
 	}
 
 }
@@ -236,6 +240,33 @@ async function Lottery() {
 	}
 }
 
+
+
+
+async function Stock() {
+	let option = {
+		url: `https://20315128-3.hdpyqe.com/api/minAppGameCommon/getGameGiftList?gameId=3`,
+		headers: {
+			'Host': '21156742-7.hdpyqe.com',
+			'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+		},
+		body: ''
+	};
+	let result = await httpPost(option, `库存`);
+
+	if (result.rt == 0) {
+		let gifts = result.data.gifts;
+		for (const gift of gifts) {
+			// console.log(gift);
+			let { exchangeCostValuePT, amount, name } = gift
+			DoubleLog(`${name}: 剩余 ${amount} 个, 需要积分 ${exchangeCostValuePT}`);
+		}
+
+	} else {
+		DoubleLog(`库存: 失败 ❌ 了呢,原因未知!`);
+		console.log(result);
+	}
+}
 
 
 
