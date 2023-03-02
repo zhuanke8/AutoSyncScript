@@ -1382,7 +1382,7 @@ function timeFormat(time) {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({ url: `http://119.91.148.229:8080/queryJdFruitCode`, timeout: 10000, }, (err, resp, data) => {
+    $.get({ url: `http://zhuli.ipas.eu.org:8080/queryJdFruitCode`, timeout: 10000, }, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
