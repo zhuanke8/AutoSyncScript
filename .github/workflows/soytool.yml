@@ -1,4 +1,4 @@
-name: CenBoMin-sync
+name: soytool-sync
 on:
   schedule:
     - cron: '1 */3 * * *'
@@ -6,7 +6,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: sync-CenBoMin-GithubSync
+    types: sync-soytool-script
 jobs:
   repo-sync:
     env:
@@ -18,11 +18,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync CenBoMin-GithubSync
+      - name: sync soytool-script
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/CenBoMin/GithubSync.git"
+          source_repo: "https://github.com/soytool/script.git"
           source_branch: "main"
-          destination_branch: "CenBoMin"
+          destination_branch: "soytool"
           github_token: ${{ secrets.PAT }}

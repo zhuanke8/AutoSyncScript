@@ -1,4 +1,4 @@
-name: whyour-sync
+name: liuqi6968-sync
 on:
   schedule:
     - cron: '1 */3 * * *'
@@ -6,7 +6,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: sync-whyour-hundun
+    types: sync-liuqi6968--
 jobs:
   repo-sync:
     env:
@@ -18,11 +18,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync whyour-hundun
+      - name: sync liuqi6968--
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/whyour/hundun.git"
-          source_branch: "master"
-          destination_branch: "hundun"
+          source_repo: "https://github.com/liuqi6968/-.git"
+          source_branch: "main"
+          destination_branch: "liuqi6968"
           github_token: ${{ secrets.PAT }}
