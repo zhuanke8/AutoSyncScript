@@ -1,0 +1,18 @@
+抖音极速版抓包
+http://www.fengqi.site/articleDetail?article_id=dd74f092552044af9eb75cb3784f887c
+
+格式 
+sessionid#url#X-Gorgon#X-Khronos
+
+Cookie里有sessionid值，url里的链接只要treasure_task?后面的全部参数，X-Gorgon和X-Khronos在请求头里面
+
+主要收益来源就是开宝箱后的宝箱视频广告1200金币，每20分钟一次
+
+提示奖励偷偷溜走是抓的CK有问题，你确信自己抓包操作无误，仍出现这样的问题就下 Guise或应用伪装 此类XP模块伪装机子参数重新抓包，包括看宝箱视频广告得的金币很少也这样弄
+
+建议定时规则 0 0/30 * * * ?
+
+
+示例 ：
+
+e95b881a5ee51111111111284dd52#iid=4453441746240259&device_id=3092303376555604&ac=4g&channel=wandoujia_2329_0624&aid=2329&app_name=douyin_lite&version_code=220900&version_name=22.9.0&device_platform=android&os=android&ssmix=a&device_type=OPPO+R11&device_brand=Xiaomi&language=zh&os_api=29&os_version=10&manifest_version_code=220901&resolution=1080*1876&dpi=440&update_version_code=22909900&_rticket=1681201159284&package=com.ss.android.ugc.aweme.lite&mcc_mnc=46011&gold_container=0&cpu_support64=true&host_abi=armeabi-v7a&is_guest_mode=0&app_type=normal&minor_status=0&appTheme=light&need_personal_recommend=1&is_android_pad=0&ts=1681201158&cdid=505a4f40-f96a-4f3a-ad55-f7a7be04b7b5&rom=MIUI&has_alipay=0&p_switch=1&launch_method=enter_launch&rom_version=V125&luckydog_base=y8gadV-ObzWe9EpGp4DES2IcZfkTy0itAX1jFu_DmjxMbAyPJ049y_eRIgSHi_2Fi2vIRu6SNieZ6LZZg_IGqGElVoqtABR0cI0S4pvujUvBlSmPkAfiP-VkfTr8rkfHp7gz3A6UnmF_AXShXubfRd9nkLotBBOQgLH7mht7epa3va2uC-HIY_JoneV5rMpZ&luckydog_data=MGkiPR9Fon5c1dWXpBrW8Z3yIovhVrs0XDGoj8-OqftR1gCsJAa2MsggCehSMxcZ7a0MDZt4St5mXFCfeh0-5TfyOTBpYTijPjfJVL1BXh0&luckydog_token=Z4TT2oxDqy84z0y5tEZTlsaMUxQh0zqgSMfX3kny-YBPEzlKzfAmnJKZGduGi4GmJJYDCptw_lUhKNVqwkResQ&luckydog_sdk_version=7.0.0-rc.9&luckydog_api_version=7.0.0-rc.9&luckydog_settings_version=47047&luckycat_version_name=7.0.0-rc.9&luckycat_version_code=700009&status_bar_height=24#040460db000040dd592ab7a525dddf5a94ee1d3c7a47cf4e4fda#1681201157
