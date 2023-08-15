@@ -1,6 +1,4 @@
-
 /*
-V1.0.0
 东东水果:脚本更新地址 https://gitee.com/lxk0301/jd_scripts/raw/master/jd_fruit.js
 更新时间：2021-8-20
 活动入口：京东APP我的-更多工具-东东农场
@@ -44,7 +42,7 @@ let randomCount = $.isNode() ? 20 : 5;
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const urlSchema = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html%22%20%7D`;
 $.newShareCode = [];
-const ZLC = true;
+const ZLC = false;
 let shareCodeStr = '';
 !(async () => {
   if (!ZLC) {
@@ -126,11 +124,15 @@ async function jdFruit() {
     await initForFarm();
     if ($.farmInfo.farmUserPro) {
 
-      await $.get({
-        url: 'http://119.91.148.229:8080/activeJdFruitCode?code=' + $.farmInfo.farmUserPro.shareCode
-      }, function (err, resp, data) {
-        console.log('互助码状态:' + resp.body);
-      })
+      try {
+        await $.get({
+          url: 'http://cone.ipas.eu.org:2052/activeJdFruitCode?code=' + $.farmInfo.farmUserPro.shareCode
+        }, function (err, resp, data) {
+          console.log('互助码状态:' + resp.body);
+        })
+      } catch (error) {
+        console.log('互助码状态错误:' + error.message);
+      }
 
       // option['media-url'] = $.farmInfo.farmUserPro.goodsImage;
       message = `【水果名称】${$.farmInfo.farmUserPro.name}\n`;
@@ -1265,7 +1267,6 @@ async function gotClockInGift() {
 //定时领水API
 async function gotThreeMealForFarm() {
   const functionId = arguments.callee.name.toString();
-  console.log(arguments.callee.name.toString(), 333333333333333333);
   $.threeMeal = await request(functionId);
 }
 /**
@@ -1387,7 +1388,7 @@ function timeFormat(time) {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({ url: `http://119.91.148.229:8080/queryJdFruitCode`, timeout: 10000, }, (err, resp, data) => {
+    $.get({ url: `http://cone.ipas.eu.org:2052/queryJdFruitCode`, timeout: 10000, }, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -1437,11 +1438,24 @@ function shareCodesFormat() {
   return new Promise(async resolve => {
     console.log(`第${$.index}个京东账号的助力码:::${$.shareCodesArr[$.index - 1]}`)
     newShareCodes = [];
-    const readShareCodeRes = await readShareCode();
-    if (readShareCodeRes && readShareCodeRes.code === 200) {
-      newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
+    if ($.shareCodesArr[$.index - 1]) {
+      newShareCodes = $.shareCodesArr[$.index - 1].split('@');
+    } else {
+      const tempIndex = $.index > shareCodes.length ? (shareCodes.length - 1) : ($.index - 1);
+      newShareCodes = shareCodes[tempIndex].split('@');
     }
-
+    if ($.isNode() && !process.env.FRUITSHARECODES) {
+      console.log(`您未填写助力码变量，优先进行账号内互助，再帮【zero205】助力`);
+      newShareCodes = [...(jdFruitShareArr || []), ...(newShareCodes || [])]
+    }
+    if (!ZLC) {
+      console.log(`您设置了不加入助力池，跳过\n`)
+    } else {
+      const readShareCodeRes = await readShareCode();
+      if (readShareCodeRes && readShareCodeRes.code === 200) {
+        newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
+      }
+    }
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify(newShareCodes)}`);
     resolve();
   })
